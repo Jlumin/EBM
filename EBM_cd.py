@@ -35,6 +35,7 @@ try:
 
         dataAcc_save = [dataAcc[n:n+3] for n in range(0, len(dataAcc), 3)]
         with open(saveFid, "a") as file:
+            file.write("x,y,z,\n") 
             for ii in range(0, len(dataAcc_save)):
                 file.write(str(dataAcc_save[ii][0]))
                 file.write(",")
