@@ -133,9 +133,14 @@ def main(is_update_file_function=False, update_drive_service_name=None, update_f
         # 檔案上傳到雲端上
         update_file(service=service, update_drive_service_name=update_drive_service_name,
                     local_file_path=os.getcwd() + '/' + update_drive_service_name)
-        print("=====上傳檔案完成=====")
-
+        print("=====上傳檔案完成=====") 
 
 if __name__ == '__main__':
-
-    main(is_update_file_function=bool(True), update_drive_service_name='aaa.txt', update_file_path=os.getcwd() + '/')
+    #dataPath='/home/pi/data/'
+    dataPath='D:/01.work/00.icebergtek/98.2020_project/E_BM/test_data/'
+    allFileList = os.listdir(dataPath)
+    for i in range(len(allFileList)):
+        filepath = 'test_data/'+allFileList[i]
+        main(is_update_file_function=bool(True), update_drive_service_name=filepath, update_file_path=os.getcwd() + '/')
+        os.remove(filepath)
+        print("完成")
